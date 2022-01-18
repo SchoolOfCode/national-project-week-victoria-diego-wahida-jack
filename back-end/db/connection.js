@@ -1,6 +1,7 @@
 import pg from "pg";
 
 import dbConfig from "../config.js"
+console.log(dbConfig.user)
 
 const pool = new pg.Pool(
     {
@@ -13,6 +14,7 @@ const pool = new pg.Pool(
     }
 ); //creating a Pool connection which we will use to connect to the remote Heroku database server
 
+// console.log(pool)
 function query(query, params) {
 /* we dont use the optional third callback parameter, which means this exported function will return a promise because we are not dealing with it here in a callback */
     return pool.query( query, params);

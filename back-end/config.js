@@ -5,5 +5,5 @@ const dbConfig = {
     password: process.env.PG_PASSWORD,
     port: process.env.PG_PORT
 }
-
+console.log(dbConfig)
 export default dbConfig;
