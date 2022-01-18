@@ -10,7 +10,8 @@
     "build": "cd ./back-end/front-end && npm install && npm run build",
     "dbCreateTables": "node -r dotenv/config ./back-end/db/scripts/users/createTable.js",
     "dbPopulateTables": "node -r dotenv/config ./back-end/db/scripts/users/populateTable.js",
-    "dev": "nodemon -r dotenv/config ./back-end/bin/www.js"
+    "dev": "nodemon -r dotenv/config ./back-end/bin/www.js",
+    "heroku-postbuild": "node ./back-end/bin/www.js"
   },
   "dependencies": {
     "concurrently": "^7.0.0",
