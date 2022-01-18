@@ -7,7 +7,7 @@
     "start": "node ./back-end/bin/www.js",
     "frontend": "cd ./back-end/front-end/ && npm i && npm run start",
     "testBuild": "concurrently --kill-others-on-fail \"npm run start\" \"npm run frontend\"",
-    "build": "cd ./back-end/front-end && npm install && npm run",
+    "build": "cd ./back-end/front-end && npm install && npm run build",
     "db:createusers": "node -r dotenv/config ./back-end/db/scripts/users/createTable.js",
     "dev": "nodemon -r dotenv/config ./back-end/bin/www.js"
   },
