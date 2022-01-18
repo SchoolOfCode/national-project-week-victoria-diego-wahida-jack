@@ -1,4 +1,9 @@
 .top-section {
   display: flex;
   justify-content: space-around;
+  height: 65vh;
+}
+
+.top-section section {
+  width: 30vw;
 }

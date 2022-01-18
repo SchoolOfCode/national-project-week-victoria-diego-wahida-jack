@@ -1,10 +1,13 @@
 import React from "react";
+import "./styles.css";
 
 function SolvedArea() {
   return (
-    <section>
-      <h1>Solved</h1>
-    </section>
+    <div className="solved-area">
+      <section>
+        <h1>Solved</h1>
+      </section>
+    </div>
   );
 }
 

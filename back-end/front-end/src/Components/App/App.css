@@ -3,12 +3,14 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  height: 100vh;
 }
 
 .App div {
   border-color: red;
   border-style: solid;
   border-radius: 1px;
+  margin-bottom: 10px;
 }
 
 .App section {
