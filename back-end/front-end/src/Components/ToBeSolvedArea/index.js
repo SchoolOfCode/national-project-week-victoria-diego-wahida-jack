@@ -1,9 +1,12 @@
 import React from "react";
+import ProblemList from "../ProblemList";
 
-function ToBeSolvedArea() {
+function ToBeSolvedArea({problems}) {
   return (
     <section>
       <h1>To Be Solved</h1>
+      <ProblemList problems={problems}></ProblemList>
+
     </section>
   );
 }
