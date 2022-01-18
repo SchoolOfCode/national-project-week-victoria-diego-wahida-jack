@@ -1,11 +1,11 @@
-import React, { useState } from "react"; 
-import BeingSolvedArea from "../BeingSolvedArea";
-import './App.css';
+import React, { useState } from "react";
+import MainPage from "../MainPage";
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-     <BeingSolvedArea />
+      <MainPage></MainPage>
     </div>
   );
 }

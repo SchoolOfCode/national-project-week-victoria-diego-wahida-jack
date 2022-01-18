@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
 function BeingSolvedArea() {
-    return (
-        <div>
-            <h1>Being Solved</h1>
-        </div>
-    )
+  return (
+    <section>
+      <h1>Being Solved</h1>
+    </section>
+  );
 }
 
-export default BeingSolvedArea
+export default BeingSolvedArea;
