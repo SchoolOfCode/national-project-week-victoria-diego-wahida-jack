@@ -1,9 +1,31 @@
-import db from "../../connection.js";
+import query from "../../connection.js"
 
-const response = db.query(
-  `CREATE TABLE IF NOT EXISTS users (id SERIAL PRIMARY KEY, username TEXT, first_name TEXT, last_name TEXT);`
-);
+console.log(query)
 
-console.log(response);
+const sqlUsersString = `CREATE TABLE IF NOT EXISTS users (id SERIAL PRIMARY KEY, username TEXT, roomNumber INT);`;
 
-db.end();
+async function createUsersTable(){
+      const res = await query(sqlUsersString);
+      console.log("Created users table", res);
+}
+
+createUsersTable()
+
+const sqlUnsolvedProblemsString = `CREATE TABLE IF NOT EXISTS unsolvedProblems (id SERIAL PRIMARY KEY, roomNumber INT, title TEXT, text TEXT);`;
+
+async function createUnsolvedProblemsTable(){
+      const res = await query(sqlUnsolvedProblemsString);
+      console.log("Created unsolvedProblems table", res);
+}
+
+createUnsolvedProblemsTable()
+
+const sqlSolvedProblemsString = `CREATE TABLE IF NOT EXISTS solvedProblems (id SERIAL PRIMARY KEY, roomNumber INT, title TEXT, text TEXT);`;
+
+async function createSolvedProblemsTable(){
+      const res = await query(sqlSolvedProblemsString);
+      console.log("Created solvedProblems table", res);
+}
+
+createSolvedProblemsTable()
+
