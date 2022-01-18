@@ -1,3 +1,4 @@
-.problem-buttons{
-    display:flex
+.problem-buttons {
+  display: flex;
+  justify-content: space-around;
 }
