@@ -24,14 +24,17 @@ export const unsolvedProblems = [
 ];
 
 function MainPage() {
-  const[problems,setProblems] = useState([...unsolvedProblems])
+  const [problems, setProblems] = useState([...unsolvedProblems]);
 
-  function getProblems(){
-setProblems([...problems,...unsolvedProblems])
+  async function getProblems() {
+    //Fetch problems from Heroku backend
+    const res = await fetch("https://national-project.herokuapp.com/");
+    const result = await res.json();
+    console.log(result);
   }
-  console.log(problems)
-
-  
+  //Run fetch problems function
+  getProblems();
+  console.log(problems);
 
   return (
     <div>

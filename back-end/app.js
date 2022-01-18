@@ -11,7 +11,12 @@ import usersRouter from "./routes/users.js";
 const app = express();
 
 app.use(logger("dev"));
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://stupefied-mcnulty-7a24c5.netlify.app/",
+    credentials: true,
+  })
+);
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
