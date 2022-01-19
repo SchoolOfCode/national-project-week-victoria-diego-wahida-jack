@@ -6,11 +6,14 @@ import PeopleIcon from "@mui/icons-material/People";
 import "./styles.css";
 
 function ProblemButtons() {
+  function handleClick() {
+    console.log("hello");
+  }
   return (
     <div className="problem-buttons">
       <MeetingRoomOutlinedIcon></MeetingRoomOutlinedIcon>
-      <SupportIcon></SupportIcon>
-      <PlusOneOutlinedIcon></PlusOneOutlinedIcon>
+      <SupportIcon onClick={handleClick}></SupportIcon>
+      <PlusOneOutlinedIcon onClick={handleClick}></PlusOneOutlinedIcon>
       <PeopleIcon></PeopleIcon>
     </div>
   );
