@@ -7,6 +7,8 @@ import cors from "cors";
 import logger from "morgan";
 
 import usersRouter from "./routes/users.js";
+import unsolvedProblemsRouter from "./routes/unsolvedProblems.js";
+import solvedProblemsRouter from "./routes/solvedProblems.js";
 
 const app = express();
 
@@ -28,6 +30,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "./front-end/src/build")));
 
 app.use("/users", usersRouter);
+app.use("/solvedproblems", solvedProblemsRouter);
+app.use("/unsolvedproblems", unsolvedProblemsRouter);
 
 app.use(function (req, res, next) {
   res
