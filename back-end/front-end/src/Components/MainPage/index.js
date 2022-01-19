@@ -97,7 +97,7 @@ function MainPage() {
   // async function toggleToBeingSolved(id) {
   //   let index = problems.findIndex((e) => e.id === id)
   //  let ammendedItem = {...problems[index], beingSolved: !problems[index].beingSolved}
-  //   setProblems([...problems[0,index],  ammendedItem])
+  //   setProblems([...problems[0,index]git,  ammendedItem])
   //   const problems = [...problems, ]
   // }
   //Run fetch problems function
