@@ -15,13 +15,14 @@ const app = express();
 app.use(logger("dev"));
 app.use(
   cors({
-    origin: [
-      "https://stupefied-mcnulty-7a24c5.netlify.app",
-      "https://stupefied-mcnulty-7a24c5.netlify.app/",
-      "http://localhost:3000",
-      "http://localhost:3001",
-      "https://national-project.herokuapp.com/",
-    ],
+    // origin: [
+    //   "https://stupefied-mcnulty-7a24c5.netlify.app",
+    //   "https://stupefied-mcnulty-7a24c5.netlify.app/",
+    //   "http://localhost:3000",
+    //   "http://localhost:3001",
+    //   "https://national-project.herokuapp.com/",
+    // ],
+    origin: "*",
   })
 );
 app.use(express.json());
