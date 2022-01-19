@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import BeingSolvedArea from "../BeingSolvedArea";
 import SolvedArea from "../SolvedArea";
 import ToBeSolvedArea from "../ToBeSolvedArea";
-import CoachesArea from "../CoachesArea";
+// import CoachesArea from "../CoachesArea";
+import FormPage from "../FormPage"
 import "./styles.css";
 
 export const unsolvedProblems = [
@@ -75,6 +76,9 @@ function MainPage() {
     console.log(result);
   }
 
+  getProblems();
+  console.log(problems);
+
   // async function toggleToBeingSolved(id) {
   //   let index = problems.findIndex((e) => e.id === id)
   //  let ammendedItem = {...problems[index], beingSolved: !problems[index].beingSolved}
@@ -82,8 +86,7 @@ function MainPage() {
   //   const problems = [...problems, ]
   // }
   //Run fetch problems function
-  getProblems();
-  console.log(problems);
+
 
 
   return (
@@ -91,7 +94,8 @@ function MainPage() {
       <div className="top-section">
         <ToBeSolvedArea problems={toBeSolved}></ToBeSolvedArea>
         <BeingSolvedArea problems={beingSolved}></BeingSolvedArea>
-        <CoachesArea></CoachesArea>
+        {/* <CoachesArea></CoachesArea> */}
+        <FormPage />
       </div>
       <SolvedArea></SolvedArea>
     </div>

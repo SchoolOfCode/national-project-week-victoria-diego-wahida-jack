@@ -20,6 +20,22 @@ async function createUnsolvedProblemsTable(){
 
 createUnsolvedProblemsTable()
 
+const sqlAddColumnsString = `ALTER TABLE unsolvedProblems ADD COLUMN dateandtime TEXT`
+
+async function addColumns() {
+      const res =await query(sqlAddColumnsString)
+      console.log("Created new columns", res)
+}
+
+const sqlAddColumnsString2 = `ALTER TABLE unsolvedProblems ADD COLUMN time TEXT`
+
+async function addColumns2() {
+      const res =await query(sqlAddColumnsString2)
+      console.log("Created new columns", res)
+}
+
+addColumns2()
+
 const sqlSolvedProblemsString = `CREATE TABLE IF NOT EXISTS solvedProblems (id SERIAL PRIMARY KEY, roomNumber INT, title TEXT, text TEXT);`;
 
 async function createSolvedProblemsTable(){
