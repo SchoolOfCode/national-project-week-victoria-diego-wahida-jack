@@ -88,20 +88,7 @@ function MainPage() {
 
   //Run fetch problems function
 
-  // create a function that renders the unsolved problem data in to be solved column
-  async function fetchProblems(){
-    const res = fetch(API_URL,{
-      method: 'PUT',
-      headers:{
-      'Content-Type':'application/json'
-      },
-      body: JSON.stringify(unsolvedProblems)
-    })
-    console.log(res)
-  }
-
-  fetchProblems()
-
+ 
 
   return (
     <div>
