@@ -7,7 +7,7 @@ function ProblemRow({ problems }) {
   return (
     <div className="problemRow">
       <ProblemDetails problems={problems}></ProblemDetails>
-      <ProblemButtons></ProblemButtons>
+      <ProblemButtons problems={problems}></ProblemButtons>
     </div>
   );
 }

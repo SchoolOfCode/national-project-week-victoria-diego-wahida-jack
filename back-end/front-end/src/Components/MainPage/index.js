@@ -74,9 +74,17 @@ function MainPage() {
     const result = await res.json();
     console.log(result);
   }
+
+  // async function toggleToBeingSolved(id) {
+  //   let index = problems.findIndex((e) => e.id === id)
+  //  let ammendedItem = {...problems[index], beingSolved: !problems[index].beingSolved}
+  //   setProblems([...problems[0,index],  ammendedItem])
+  //   const problems = [...problems, ]
+  // }
   //Run fetch problems function
   getProblems();
   console.log(problems);
+
 
   return (
     <div>
