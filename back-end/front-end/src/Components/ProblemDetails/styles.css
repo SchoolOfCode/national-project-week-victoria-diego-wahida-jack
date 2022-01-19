@@ -1,20 +1,38 @@
-.problem-header{
-    display: flex;
-    justify-content: space-between;
-    font-size: 10pt;
-    align-items: center;
-    align-content: flex-start;
-    margin-bottom: 0;
+.problem-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10pt;
+  align-items: center;
+  margin-bottom: 0;
 }
 
-.problem-header div{
-    margin-bottom: 0;
+.problem-header * {
+  margin-top: 0.5vh;
+  margin-left: 0.5vw;
+  margin-right: 0.5vw;
 }
 
-.problem-room-number{
-    display: flex;
-    justify-content: space-between;
-    font-size: 10pt;
-    align-items: center;
-    align-content: flex-start;
+.problem-header div {
+  margin-bottom: 0;
+}
+
+.problem-room-number {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10pt;
+  align-items: center;
+  align-content: flex-start;
+}
+
+.problem-room-number header {
+  color: blue;
+  font-size: 3vh;
+  background-color: red;
+  border-radius: 50%;
+  width: 2vw;
+  height: 2vw;
+  padding: 1vw;
+  line-height: 2vh;
+  text-align: center;
+  margin-left: 0.5vw;
 }

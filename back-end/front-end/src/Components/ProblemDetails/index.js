@@ -5,7 +5,7 @@ function ProblemDetails({ problems }) {
   return (
     <div>
       <div className="problem-header">
-        <h3>Room # </h3>
+        <h4>Room # </h4>
         <h2>{problems.title}</h2>
         <p>{problems.time}</p>
       </div>

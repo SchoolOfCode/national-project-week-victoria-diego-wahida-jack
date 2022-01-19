@@ -1,4 +1,5 @@
 .problem-buttons {
   display: flex;
   justify-content: space-around;
+  border-top: solid black 1px;
 }
