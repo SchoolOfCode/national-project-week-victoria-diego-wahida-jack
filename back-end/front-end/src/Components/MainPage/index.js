@@ -67,7 +67,7 @@ function MainPage() {
     let time = today.getHours() + ":" + today.getMinutes();
   }
 
-  newProblems();
+  newProblems(); 
 
   async function getProblems() {
     //Fetch problems from Heroku backend
@@ -78,6 +78,21 @@ function MainPage() {
 
   getProblems();
   console.log(problems);
+
+  //export async function UpdateUnsolvedProblemByID(id, update) {
+//     const {roomNumber, title, text} = update
+//     const data = await query('UPDATE unsolvedProblems SET roomNumber = $2, title = $3, text = $4 WHERE id= $1 RETURNING*;', [id, roomNumber, title,text])
+//     return data.rows
+// }
+
+// router.put("/:id", async function (req,res){
+//   const update = req.body
+//   const id = req.params.id
+//   res.json({
+//       "success": true,
+//       "payload": await UpdateUnsolvedProblemByID(id,update)
+//   })
+// })
 
   // async function toggleToBeingSolved(id) {
   //   let index = problems.findIndex((e) => e.id === id)
