@@ -1,0 +1,20 @@
+.problem-header{
+    display: flex;
+    justify-content: space-between;
+    font-size: 10pt;
+    align-items: center;
+    align-content: flex-start;
+    margin-bottom: 0;
+}
+
+.problem-header div{
+    margin-bottom: 0;
+}
+
+.problem-room-number{
+    display: flex;
+    justify-content: space-between;
+    font-size: 10pt;
+    align-items: center;
+    align-content: flex-start;
+}
