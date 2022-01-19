@@ -74,7 +74,7 @@ export function FormPage({ defaultOpened = false }, ref) {
       <section className="modal">
         <div className="modal-overlay" onClick={close}></div>
         <CancelIcon className="modal-close" onClick={close}></CancelIcon>
-        <h1>Form Page</h1>
+        <h1>Enter your problem:</h1>
         <label>
           Have you googled it?
           <input
@@ -85,29 +85,41 @@ export function FormPage({ defaultOpened = false }, ref) {
           ></input>
         </label>
         <br></br>
-        <input
-          placeholder="enter your name"
-          onChange={(e) => handleChange("person", e.target.value)}
-          value={formData.person}
-        ></input>
+        <label>
+          Name:
+          <input
+            placeholder="enter your name"
+            onChange={(e) => handleChange("person", e.target.value)}
+            value={formData.person}
+          ></input>
+        </label>
         <br></br>
-        <input
-          placeholder="room #"
-          onChange={(e) => handleChange("roomNumber", e.target.value)}
-          value={formData.roomNumber}
-        ></input>
+        <label>
+          Room number:
+          <input
+            placeholder="room #"
+            onChange={(e) => handleChange("roomNumber", e.target.value)}
+            value={formData.roomNumber}
+          ></input>
+        </label>
         <br></br>
-        <input
-          placeholder="problem title"
-          onChange={(e) => handleChange("problemTitle", e.target.value)}
-          value={formData.problemTitle}
-        ></input>
+        <label>
+          Problem title:
+          <input
+            placeholder="problem title"
+            onChange={(e) => handleChange("problemTitle", e.target.value)}
+            value={formData.problemTitle}
+          ></input>
+        </label>
         <br></br>
-        <input
-          placeholder="steps taken to solve problem"
-          onChange={(e) => handleChange("steps", e.target.value)}
-          value={formData.steps}
-        ></input>
+        <label>
+          Steps taken:
+          <input
+            placeholder="steps taken to solve problem"
+            onChange={(e) => handleChange("steps", e.target.value)}
+            value={formData.steps}
+          ></input>
+        </label>
         <br></br>
         <button
           onClick={(e) => {
