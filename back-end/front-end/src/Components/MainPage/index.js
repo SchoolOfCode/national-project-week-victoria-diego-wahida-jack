@@ -23,12 +23,15 @@ export const unsolvedProblems = [
   },
 ];
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 function MainPage() {
   const [problems, setProblems] = useState([...unsolvedProblems]);
 
   async function getProblems() {
     //Fetch problems from Heroku backend
-    const res = await fetch("https://national-project.herokuapp.com/");
+    console.log(API_URL);
+    const res = await fetch(`${API_URL}/users`);
     const result = await res.json();
     console.log(result);
   }
