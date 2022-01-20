@@ -2,7 +2,7 @@ import React from "react";
 import ProblemRow from "../ProblemRow";
 import "./styles.css";
 
-function ProblemList({ problems }) {
+function ProblemList({ problems}) {
   return (
     <div className="problem-list">
       {problems.map((item, index) => {

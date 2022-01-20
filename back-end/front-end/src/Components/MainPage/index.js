@@ -57,6 +57,7 @@ const API_URL = process.env.REACT_APP_API_URL;
 
 function MainPage() {
   const [problems, setProblems] = useState([]);
+  const [solvedproblems, setSolvedProblems] = useState([])
 
   async function newProblems() {
     let today = new Date();
@@ -79,6 +80,20 @@ useEffect(()=> {
   getProblems();
 },[])
 
+useEffect(()=> {
+  async function getSolvedProblems() {
+    //Fetch problems from Heroku backend
+    const res = await fetch(`${API_URL}/solvedproblems`);
+    const result = await res.json();
+    let array = []
+    for(let i=0; i<result.payload.length; i++) {
+      array.push(result.payload[i])
+    }
+    console.log("get solvedproblems fire")  
+    setSolvedProblems(array)
+  }
+  getSolvedProblems();
+},[])
 
 //When you click on the button, change the beingsolved: true/false. 
 //
@@ -110,7 +125,7 @@ useEffect(()=> {
         <CoachesArea></CoachesArea>
         {/* <FormPage /> */}
       </div>
-      <SolvedArea></SolvedArea>
+      <SolvedArea problems= {solvedproblems}></SolvedArea>
     </div>
   );
 }
