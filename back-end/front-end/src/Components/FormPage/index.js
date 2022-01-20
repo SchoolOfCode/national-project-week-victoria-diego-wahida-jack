@@ -10,17 +10,20 @@ import "./styles.css";
 import CancelIcon from "@mui/icons-material/Cancel";
 
 const modalElement = document.getElementById("modal-root");
+const API_URL = process.env.REACT_APP_API_URL;
 
 export function FormPage({ defaultOpened = false }, ref) {
   const [isOpen, setIsOpen] = useState(defaultOpened);
   const close = useCallback(() => setIsOpen(false), []);
 
   const formTemplate = {
-    person: "",
-    roomNumber: "",
-    problemTitle: "",
-    steps: "",
+    roomnumber: "",
+    title: "",
+    text: "",
+    dateandtime: "",
+    time: "",
     checkbox: false,
+    beingsolved: false,
   };
 
   const [formData, setFormData] = useState(formTemplate);
@@ -30,17 +33,37 @@ export function FormPage({ defaultOpened = false }, ref) {
     setFormData({ ...formData, [item]: value });
 
     if (
-      formData.person === "" ||
-      formData.roomNumber === "" ||
-      formData.problemTitle === "" ||
-      formData.steps === "" ||
+      formData.roomnumber === "" ||
+      formData.title === "" ||
+      formData.text === "" ||
       formData.checkbox === false
     ) {
-      console.log(formData.checkbox);
+      console.log(formData);
       return;
     } else {
       setValidForm(false);
     }
+  }
+
+  async function submitProblem() {
+    let today = new Date();
+    let minutes = today.getMinutes();
+    if (minutes < 10) {
+      minutes = "0" + minutes;
+    }
+    let currentTime = today.getHours() + ":" + minutes;
+    today = today.toString();
+    console.log(today);
+    let entry = { ...formData, dateandtime: today, time: currentTime };
+    const res = await fetch(`${API_URL}/unsolvedproblems/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(entry),
+    });
+    const result = await res.json();
+    console.log(result);
   }
 
   function clearForm() {
@@ -86,20 +109,11 @@ export function FormPage({ defaultOpened = false }, ref) {
         </label>
         <br></br>
         <label>
-          Name:
-          <input
-            placeholder="enter your name"
-            onChange={(e) => handleChange("person", e.target.value)}
-            value={formData.person}
-          ></input>
-        </label>
-        <br></br>
-        <label>
           Room number:
           <input
             placeholder="room #"
-            onChange={(e) => handleChange("roomNumber", e.target.value)}
-            value={formData.roomNumber}
+            onChange={(e) => handleChange("roomnumber", e.target.value)}
+            value={formData.roomnumber}
           ></input>
         </label>
         <br></br>
@@ -107,8 +121,8 @@ export function FormPage({ defaultOpened = false }, ref) {
           Problem title:
           <input
             placeholder="problem title"
-            onChange={(e) => handleChange("problemTitle", e.target.value)}
-            value={formData.problemTitle}
+            onChange={(e) => handleChange("title", e.target.value)}
+            value={formData.title}
           ></input>
         </label>
         <br></br>
@@ -116,13 +130,14 @@ export function FormPage({ defaultOpened = false }, ref) {
           Steps taken:
           <input
             placeholder="steps taken to solve problem"
-            onChange={(e) => handleChange("steps", e.target.value)}
-            value={formData.steps}
+            onChange={(e) => handleChange("text", e.target.value)}
+            value={formData.text}
           ></input>
         </label>
         <br></br>
         <button
           onClick={(e) => {
+            submitProblem();
             clearForm(e);
             setIsOpen(false);
           }}
