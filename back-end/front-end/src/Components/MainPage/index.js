@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import BeingSolvedArea from "../BeingSolvedArea";
 import SolvedArea from "../SolvedArea";
 import ToBeSolvedArea from "../ToBeSolvedArea";
-// import CoachesArea from "../CoachesArea";
-import FormPage from "../FormPage"
+import CoachesArea from "../CoachesArea";
 import "./styles.css";
 
 export const unsolvedProblems = [
@@ -79,10 +78,25 @@ function MainPage() {
   getProblems();
   console.log(problems);
 
+  //export async function UpdateUnsolvedProblemByID(id, update) {
+  //     const {roomNumber, title, text} = update
+  //     const data = await query('UPDATE unsolvedProblems SET roomNumber = $2, title = $3, text = $4 WHERE id= $1 RETURNING*;', [id, roomNumber, title,text])
+  //     return data.rows
+  // }
+
+  // router.put("/:id", async function (req,res){
+  //   const update = req.body
+  //   const id = req.params.id
+  //   res.json({
+  //       "success": true,
+  //       "payload": await UpdateUnsolvedProblemByID(id,update)
+  //   })
+  // })
+
   // async function toggleToBeingSolved(id) {
   //   let index = problems.findIndex((e) => e.id === id)
   //  let ammendedItem = {...problems[index], beingSolved: !problems[index].beingSolved}
-  //   setProblems([...problems[0,index],  ammendedItem])
+  //   setProblems([...problems[0,index]git,  ammendedItem])
   //   const problems = [...problems, ]
   // }
  
@@ -96,16 +110,13 @@ function MainPage() {
 
   //Run fetch problems function
 
-
-
-
   return (
     <div>
       <div className="top-section">
         <ToBeSolvedArea problems={toBeSolved}></ToBeSolvedArea>
         <BeingSolvedArea problems={beingSolved}></BeingSolvedArea>
-        {/* <CoachesArea></CoachesArea> */}
-        <FormPage />
+        <CoachesArea></CoachesArea>
+        {/* <FormPage /> */}
       </div>
       <SolvedArea></SolvedArea>
     </div>

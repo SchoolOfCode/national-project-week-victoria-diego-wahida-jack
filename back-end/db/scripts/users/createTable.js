@@ -1,5 +1,4 @@
 import query from "../../connection.js"
-
 console.log(query)
 
 const sqlUsersString = `CREATE TABLE IF NOT EXISTS users (id SERIAL PRIMARY KEY, username TEXT, roomNumber INT);`;

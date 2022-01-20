@@ -1,6 +1,9 @@
 .toBeSolvedArea {
   height: 100%;
 }
-.toBeSolvedArea h1 {
-  height: 4vh;
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
