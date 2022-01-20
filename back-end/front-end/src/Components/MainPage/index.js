@@ -85,10 +85,19 @@ function MainPage() {
   //   setProblems([...problems[0,index],  ammendedItem])
   //   const problems = [...problems, ]
   // }
+ 
+  // fetch(API_URL,{
+  //   method: 'PUT',
+  //   headers:{
+  //   'Content-Type':'application/json'
+  //   },
+  //   body: JSON.stringify(DATA_WHICH_WE_WANT_TO_SEND)
+  // })
 
   //Run fetch problems function
 
- 
+
+
 
   return (
     <div>

@@ -3,7 +3,7 @@ import ProblemDetails from "../ProblemDetails";
 import ProblemButtons from "../ProblemButtons";
 import "./styles.css";
 
-function ProblemRow({ problems }) {
+function ProblemRow({ problems, show }) {
   return (
     <div className="problemRow">
       <ProblemDetails problems={problems}></ProblemDetails>
