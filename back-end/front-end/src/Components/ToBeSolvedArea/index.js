@@ -5,6 +5,7 @@ import AddIcon from "@mui/icons-material/Add";
 import FormPage from "../FormPage";
 
 function ToBeSolvedArea({ problems }) {
+  console.log("toBeSolved", problems)
   const modal = useRef(null);
   return (
     <section className="toBeSolvedArea">

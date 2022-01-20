@@ -49,14 +49,14 @@ export async function getUnsolvedProblemsByID(id) {
 }
 
 export async function createNewUnSolvedProblem(problem) {
-    const {roomNumber, title, text} = problem;
-    const data = await query('INSERT INTO unsolvedProblems (roomNumber, title, text) VALUES ($1,$2, $3) RETURNING*;', [roomNumber, title, text])
+    const {roomNumber, title, text, dateandtime, time, beingsolved} = problem;
+    const data = await query('INSERT INTO unsolvedProblems (roomNumber, title, text, dateandtime, time, beingsolved) VALUES ($1,$2, $3, $4, $5, $6) RETURNING*;', [roomNumber, title, text, dateandtime, time, beingsolved])
     return data.rows;
 }
 
 export async function UpdateUnsolvedProblemByID(id, update) {
-    const {roomNumber, title, text} = update
-    const data = await query('UPDATE unsolvedProblems SET roomNumber = $2, title = $3, text = $4 WHERE id= $1 RETURNING*;', [id, roomNumber, title,text])
+    const {roomNumber, title, text, dateandtime, time, beingsolved} = update
+    const data = await query('UPDATE unsolvedProblems SET roomNumber = $2, title = $3, text = $4, dateandtime = $5,  time = $6, beingsolved = $7 WHERE id= $1 RETURNING*;', [id, roomNumber, title,text, dateandtime, time, beingsolved])
     return data.rows
 }
 

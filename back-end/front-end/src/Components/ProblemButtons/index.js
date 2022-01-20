@@ -9,7 +9,7 @@ import { handleBreakpoints } from "@mui/system";
 function ProblemButtons({problems}) {
 
   const[count,setCount]= useState(0)
-  const[show,setShow] = useState(problems.beingSolved === false)
+  const[show,setShow] = useState(problems.beingsolved === false)
 
 
   function IncrementCount(){
@@ -28,7 +28,7 @@ function ProblemButtons({problems}) {
   
   
 
-  if(problems.beingSolved===true) {
+  if(problems.beingsolved===true) {
     return (
       <div className="problem-buttons">
       <MeetingRoomOutlinedIcon></MeetingRoomOutlinedIcon>

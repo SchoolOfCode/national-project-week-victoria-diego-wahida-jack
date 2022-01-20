@@ -21,8 +21,8 @@ async function populateUnsolvedProblemsTable() {
     
     unsolvedProblems.forEach(async problem => {
 
-        const sqlValues = [problem.roomNumber, problem.title,problem.text];
-       let response = await query(`INSERT INTO unsolvedProblems (roomNumber,title,text) VALUES ($1, $2, $3) RETURNING *`, sqlValues);
+        const sqlValues = [problem.roomnumber, problem.title,problem.text, problem.dateandtime, problem.time, problem.beingsolved];
+       let response = await query(`INSERT INTO unsolvedProblems (roomNumber,title,text, dateandtime, time, beingsolved) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *`, sqlValues);
        
        console.log(`This is populateUnSolvedProblemsTable() response: `, response);
     });

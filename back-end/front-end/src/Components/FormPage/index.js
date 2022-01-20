@@ -72,7 +72,7 @@ export function FormPage({ defaultOpened = false }, ref) {
   return createPortal(
     isOpen ? (
       <section className="modal">
-        <div className="modal-overlay" onClick={close}></div>
+        {/* <div className="modal-overlay" onClick={close}></div> */}
         <CancelIcon className="modal-close" onClick={close}></CancelIcon>
         <h1>Enter your problem:</h1>
         <label>

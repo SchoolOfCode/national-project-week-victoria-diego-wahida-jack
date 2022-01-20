@@ -10,7 +10,7 @@ function ProblemDetails({ problems }) {
         <p>{problems.time}</p>
       </div>
       <div className="problem-room-number">
-        <header>{problems.roomNumber}</header>
+        <header>{problems.roomnumber}</header>
         <p>{problems.text}</p>
         <div></div>
       </div>

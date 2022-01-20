@@ -35,6 +35,15 @@ async function addColumns2() {
 
 addColumns2()
 
+const sqlAddColumnsString3 = `ALTER TABLE unsolvedProblems ADD COLUMN beingsolved BOOLEAN`
+
+async function addColumns3() {
+      const res =await query(sqlAddColumnsString3)
+      console.log("Created new columns", res)
+}
+
+addColumns3()
+
 const sqlSolvedProblemsString = `CREATE TABLE IF NOT EXISTS solvedProblems (id SERIAL PRIMARY KEY, roomNumber INT, title TEXT, text TEXT);`;
 
 async function createSolvedProblemsTable(){
