@@ -5,7 +5,7 @@ import PlusOneOutlinedIcon from "@mui/icons-material/PlusOneOutlined";
 import PeopleIcon from "@mui/icons-material/People";
 import "./styles.css";
 
-function ProblemButtons({ problems, handleClick }) {
+function ProblemButtons({ problem, handleClick }) {
   const [count, setCount] = useState(0);
 
   function IncrementCount() {
@@ -13,37 +13,37 @@ function ProblemButtons({ problems, handleClick }) {
     console.log("count");
   }
 
-  if (problems.beingsolved === true) {
+  if (problem.beingsolved === true) {
     return (
       <div className="problem-buttons">
-        <SupportIcon
-          id={problems.id}
-          onClick={(e) => handleClick(e)}
-        ></SupportIcon>
+        <button id={problem.id} onClick={() => handleClick(problem.id)}>
+        <SupportIcon></SupportIcon>
+        </button>
         <PlusOneOutlinedIcon
           onClick={IncrementCount}
-          id={problems.id}
+          id={problem.id}
         ></PlusOneOutlinedIcon>
         <PeopleIcon></PeopleIcon>
 
         <p>{count}</p>
       </div>
     );
-  } else {
+  } else if (problem.beingsolved === false) {
     return (
       <div className="problem-buttons">
         <MeetingRoomOutlinedIcon></MeetingRoomOutlinedIcon>
-        <SupportIcon
-          id={problems.id}
-          onClick={(e) => handleClick(e)}
-        ></SupportIcon>
+        <button id={problem.id} onClick={() => handleClick(problem.id)}>
+        <SupportIcon></SupportIcon>
+        </button>
         <PlusOneOutlinedIcon
           onClick={IncrementCount}
-          id={problems.id}
+          id={problem.id}
         ></PlusOneOutlinedIcon>
         <PeopleIcon></PeopleIcon>
       </div>
     );
+  } else {
+    return null;
   }
 }
 

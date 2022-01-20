@@ -1,11 +1,11 @@
 import React from "react";
 import ProblemList from "../ProblemList";
 
-function BeingSolvedArea({ problems, handleClick }) {
+function BeingSolvedArea({ beingSolvedProblems, handleClick }) {
   return (
     <section>
       <h1>Being Solved</h1>
-      <ProblemList handleClick={handleClick} problems={problems}></ProblemList>
+      <ProblemList handleClick={handleClick} problems={beingSolvedProblems}></ProblemList>
     </section>
   );
 }

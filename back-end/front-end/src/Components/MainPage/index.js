@@ -17,17 +17,20 @@ function MainPage() {
   }
 
   newProblems();
-  useEffect(() => {
-    async function getProblems() {
-      //Fetch problems from Heroku backend
-      const res = await fetch(`${API_URL}/unsolvedproblems`);
-      const result = await res.json();
-      let array = [];
-      for (let i = 0; i < result.payload.length; i++) {
-        array.push(result.payload[i]);
-      }
-      setProblems(array);
+
+  const getProblems = async () => {
+    //Fetch problems from Heroku backend
+    const res = await fetch(`${API_URL}/unsolvedproblems`);
+    const result = await res.json();
+    let array = [];
+    for (let i = 0; i < result.payload.length; i++) {
+      array.push(result.payload[i]);
     }
+    setProblems(array);
+  }
+
+  useEffect(() => {
+  
     getProblems();
     const interval = setInterval(() => {
       getProblems();
@@ -41,10 +44,12 @@ function MainPage() {
       //Fetch problems from Heroku backend
       const res = await fetch(`${API_URL}/solvedproblems`);
       const result = await res.json();
-      let array = [];
-      for (let i = 0; i < result.payload.length; i++) {
-        array.push(result.payload[i]);
-      }
+      console.log(result)
+      // let array = [];
+      // for (let i = 0; i < result.payload.length; i++) {
+      //   array.push(result.payload[i]);
+      // }
+      const array = result.payload
       setSolvedProblems(array);
     }
     getSolvedProblems();
@@ -57,10 +62,10 @@ function MainPage() {
 
   //When you click on the button, change the beingsolved: true/false.
   //
-  async function toggleToBeingSolved(id) {
-    console.log(id.target.id);
-    id = Number(id.target.id);
-    let index = problems.find((e) => e.id === id);
+  async function toggleToBeingSolved(event) {
+    // console.log(event);
+    // const problemID = Number(event.target.id);
+    let index = problems.find((e) => e.id === event);
     console.log(index);
     if (index === undefined) {
       return;
@@ -74,7 +79,7 @@ function MainPage() {
 
       console.log(oldproblem);
 
-      const res = await fetch(`${API_URL}/unsolvedproblems/${id}`, {
+      const res = await fetch(`${API_URL}/unsolvedproblems/${event}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -84,6 +89,7 @@ function MainPage() {
       const result = await res.json();
       console.log(result);
     }
+    getProblems()
   }
 
   //Run fetch problems function
@@ -93,11 +99,13 @@ function MainPage() {
       <div className="top-section">
         <ToBeSolvedArea
           handleClick={toggleToBeingSolved}
-          problems={problems.filter((item) => item.beingsolved !== true)}
+          unsolvedproblems={problems.filter((item) => item.beingsolved !== true)}
+          setProblems={setProblems}
+          problems={problems}
         ></ToBeSolvedArea>
         <BeingSolvedArea
           handleClick={toggleToBeingSolved}
-          problems={problems.filter((item) => item.beingsolved === true)}
+          beingSolvedProblems={problems.filter((item) => item.beingsolved === true)}
         ></BeingSolvedArea>
         <CoachesArea></CoachesArea>
         {/* <FormPage /> */}

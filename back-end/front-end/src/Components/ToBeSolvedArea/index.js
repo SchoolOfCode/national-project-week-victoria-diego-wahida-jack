@@ -4,7 +4,7 @@ import "./styles.css";
 import AddIcon from "@mui/icons-material/Add";
 import FormPage from "../FormPage";
 
-function ToBeSolvedArea({ problems, handleClick }) {
+function ToBeSolvedArea({ handleClick, setProblems, problems, unsolvedproblems }) {
   const modal = useRef(null);
   return (
     <section className="toBeSolvedArea">
@@ -16,8 +16,8 @@ function ToBeSolvedArea({ problems, handleClick }) {
           fontSize="large"
         ></AddIcon>
       </div>
-      <ProblemList handleClick={handleClick} problems={problems}></ProblemList>
-      <FormPage ref={modal}></FormPage>
+      <ProblemList handleClick={handleClick} problems={unsolvedproblems} ></ProblemList>
+      <FormPage ref={modal} setProblems={setProblems} problems={problems} ></FormPage>
     </section>
   );
 }

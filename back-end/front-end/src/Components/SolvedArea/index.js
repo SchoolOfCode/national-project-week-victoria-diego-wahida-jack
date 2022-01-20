@@ -10,7 +10,7 @@ function SolvedArea({ problems }) {
         <div className="solved-list">
           {problems.map((item, index) => {
             return (
-              <ProblemDetails problems={item} key={item.id}></ProblemDetails>
+              <ProblemDetails problem={item} key={item.id}></ProblemDetails>
             );
           })}
         </div>

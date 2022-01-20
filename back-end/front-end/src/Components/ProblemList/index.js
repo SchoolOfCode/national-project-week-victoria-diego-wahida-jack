@@ -9,7 +9,7 @@ function ProblemList({ problems, handleClick }) {
         return (
           <ProblemRow
             handleClick={handleClick}
-            problems={item}
+            problem={item}
             key={item.id}
           ></ProblemRow>
         );

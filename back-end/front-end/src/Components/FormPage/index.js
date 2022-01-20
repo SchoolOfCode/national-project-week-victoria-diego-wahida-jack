@@ -12,7 +12,7 @@ import CancelIcon from "@mui/icons-material/Cancel";
 const modalElement = document.getElementById("modal-root");
 const API_URL = process.env.REACT_APP_API_URL;
 
-export function FormPage({ defaultOpened = false }, ref) {
+export function FormPage({ defaultOpened = false, setProblems, problems }, ref) {
   const [isOpen, setIsOpen] = useState(defaultOpened);
   const close = useCallback(() => setIsOpen(false), []);
 
@@ -61,6 +61,7 @@ export function FormPage({ defaultOpened = false }, ref) {
       roomnumber: roomno,
     };
     console.log(entry);
+    setProblems([...problems, entry])
     const res = await fetch(`${API_URL}/unsolvedproblems/`, {
       method: "POST",
       headers: {

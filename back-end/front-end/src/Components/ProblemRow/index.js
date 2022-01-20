@@ -3,13 +3,13 @@ import ProblemDetails from "../ProblemDetails";
 import ProblemButtons from "../ProblemButtons";
 import "./styles.css";
 
-function ProblemRow({ problems, show, handleClick }) {
+function ProblemRow({ problem, handleClick }) {
   return (
     <div className="problemRow">
-      <ProblemDetails problems={problems}></ProblemDetails>
+      <ProblemDetails problem={problem}></ProblemDetails>
       <ProblemButtons
         handleClick={handleClick}
-        problems={problems}
+        problem={problem}
       ></ProblemButtons>
     </div>
   );
