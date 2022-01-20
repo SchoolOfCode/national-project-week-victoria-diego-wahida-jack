@@ -5,7 +5,7 @@ import "./styles.css";
 function ProblemList({ problems, handleClick }) {
   return (
     <div className="problem-list">
-      {problems.map((item, index) => {
+      {problems.map((item) => {
         return (
           <ProblemRow
             handleClick={handleClick}
