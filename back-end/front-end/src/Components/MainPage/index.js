@@ -77,6 +77,11 @@ function MainPage() {
       setProblems(array);
     }
     getProblems();
+    const interval = setInterval(() => {
+      getProblems();
+    }, 10000);
+
+    return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
@@ -91,6 +96,11 @@ function MainPage() {
       setSolvedProblems(array);
     }
     getSolvedProblems();
+    const interval = setInterval(() => {
+      getSolvedProblems();
+    }, 10000);
+
+    return () => clearInterval(interval);
   }, []);
 
   //When you click on the button, change the beingsolved: true/false.
