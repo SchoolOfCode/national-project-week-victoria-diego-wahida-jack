@@ -6,17 +6,17 @@
 .problemRowGreen {
   border-radius: 1%;
   margin: 0.5vh;
-  background-color: green;
+  background-color: rgb(158, 255, 158);
 }
 
 .problemRowRed {
   border-radius: 1%;
   margin: 0.5vh;
-  background-color: red;
+  background-color: rgb(255, 158, 158);
 }
 
 .problemRowYellow {
   border-radius: 1%;
   margin: 0.5vh;
-  background-color: yellow;
+  background-color: rgb(249, 255, 158);
 }
