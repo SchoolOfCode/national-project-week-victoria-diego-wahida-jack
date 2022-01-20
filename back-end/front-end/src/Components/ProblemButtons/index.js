@@ -10,10 +10,52 @@ const API_URL = process.env.REACT_APP_API_URL;
 
 function ProblemButtons({ problem, handleClick }) {
   const [count, setCount] = useState(0);
+  const [users, setUsers] = useState([]);
+
+  const getUsers = async () => {
+    //Fetch users from Heroku backend
+    const res = await fetch(`${API_URL}/users`);
+    const result = await res.json();
+    const array = result.payload;
+    setUsers(array);
+  };
+
+  useEffect(() => {
+    getUsers();
+    const interval = setInterval(() => {
+      getUsers();
+    }, 10000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   function IncrementCount() {
     setCount(count + 1);
     console.log("count");
+  }
+
+  async function findCoachesInRoom(room) {
+    //Find coach in room
+    let coach = users.find((coach, index) => coach.roomnumber === room);
+    console.log(coach);
+    //If no coaches found return
+    if (coach === undefined) {
+      console.log("no coaches in room");
+      return;
+    } else {
+      console.log("coach found in room: " + coach);
+      //Update the coach room back to 0
+      coach = { ...coach, roomnumber: 0 };
+      let id = coach.id;
+      console.log({ coach });
+      const res = await fetch(`${API_URL}/users/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(coach),
+      });
+    }
   }
 
   async function completeProblem(problem) {
@@ -42,6 +84,8 @@ function ProblemButtons({ problem, handleClick }) {
       },
     });
     console.log(deleteRes);
+    //Kick the coaches from the room
+    findCoachesInRoom(newSolvedProblem.roomnumber);
     //Refresh the page to update
     window.location.reload();
   }

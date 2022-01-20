@@ -27,10 +27,9 @@ function MainPage() {
       array.push(result.payload[i]);
     }
     setProblems(array);
-  }
+  };
 
   useEffect(() => {
-  
     getProblems();
     const interval = setInterval(() => {
       getProblems();
@@ -44,12 +43,11 @@ function MainPage() {
       //Fetch problems from Heroku backend
       const res = await fetch(`${API_URL}/solvedproblems`);
       const result = await res.json();
-      console.log(result)
       // let array = [];
       // for (let i = 0; i < result.payload.length; i++) {
       //   array.push(result.payload[i]);
       // }
-      const array = result.payload
+      const array = result.payload;
       setSolvedProblems(array);
     }
     getSolvedProblems();
@@ -87,9 +85,8 @@ function MainPage() {
         body: JSON.stringify(oldproblem),
       });
       const result = await res.json();
-      console.log(result);
     }
-    getProblems()
+    getProblems();
   }
 
   //Run fetch problems function
@@ -99,16 +96,19 @@ function MainPage() {
       <div className="top-section">
         <ToBeSolvedArea
           handleClick={toggleToBeingSolved}
-          unsolvedproblems={problems.filter((item) => item.beingsolved !== true)}
+          unsolvedproblems={problems.filter(
+            (item) => item.beingsolved !== true
+          )}
           setProblems={setProblems}
           problems={problems}
         ></ToBeSolvedArea>
         <BeingSolvedArea
           handleClick={toggleToBeingSolved}
-          beingSolvedProblems={problems.filter((item) => item.beingsolved === true)}
+          beingSolvedProblems={problems.filter(
+            (item) => item.beingsolved === true
+          )}
         ></BeingSolvedArea>
-        <CoachesArea></CoachesArea>
-        {/* <FormPage /> */}
+        <CoachesArea unsolvedproblems={problems}></CoachesArea>
       </div>
       <SolvedArea problems={solvedproblems}></SolvedArea>
     </div>
