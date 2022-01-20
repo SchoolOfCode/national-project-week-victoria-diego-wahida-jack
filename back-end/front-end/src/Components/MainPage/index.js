@@ -11,7 +11,6 @@ function MainPage() {
   const [problems, setProblems] = useState([]);
   const [solvedproblems, setSolvedProblems] = useState([]);
 
-
   const getProblems = async () => {
     //Fetch problems from Heroku backend
     const res = await fetch(`${API_URL}/unsolvedproblems`);
@@ -21,10 +20,9 @@ function MainPage() {
       array.push(result.payload[i]);
     }
     setProblems(array);
-  }
+  };
 
   useEffect(() => {
-  
     getProblems();
     const interval = setInterval(() => {
       getProblems();
@@ -38,12 +36,11 @@ function MainPage() {
       //Fetch problems from Heroku backend
       const res = await fetch(`${API_URL}/solvedproblems`);
       const result = await res.json();
-      console.log(result)
       // let array = [];
       // for (let i = 0; i < result.payload.length; i++) {
       //   array.push(result.payload[i]);
       // }
-      const array = result.payload
+      const array = result.payload;
       setSolvedProblems(array);
     }
     getSolvedProblems();
@@ -81,9 +78,8 @@ function MainPage() {
         body: JSON.stringify(oldproblem),
       });
       const result = await res.json();
-      console.log(result);
     }
-    getProblems()
+    getProblems();
   }
 
   async function clearAllProblems() {
@@ -94,8 +90,8 @@ function MainPage() {
       array.push(result.payload[i]);
     }
     setProblems(array);
-    problems.map((async(item) => {
-      console.log("great")
+    problems.map(async (item) => {
+      console.log("great");
       const res = await fetch(`${API_URL}/unsolvedproblems/${item.id}`, {
         method: "DELETE",
         headers: {
@@ -103,24 +99,30 @@ function MainPage() {
         },
       });
       const result = await res.json();
-    }))
+    });
   }
-  
 
   return (
     <div>
       <div className="top-section">
         <ToBeSolvedArea
           handleClick={toggleToBeingSolved}
-          unsolvedproblems={problems.filter((item) => item.beingsolved !== true)}
+          unsolvedproblems={problems.filter(
+            (item) => item.beingsolved !== true
+          )}
           setProblems={setProblems}
           problems={problems}
         ></ToBeSolvedArea>
         <BeingSolvedArea
           handleClick={toggleToBeingSolved}
-          beingSolvedProblems={problems.filter((item) => item.beingsolved === true)}
+          beingSolvedProblems={problems.filter(
+            (item) => item.beingsolved === true
+          )}
         ></BeingSolvedArea>
-        <CoachesArea clearAllProblems={clearAllProblems}></CoachesArea>
+        <CoachesArea
+          clearAllProblems={clearAllProblems}
+          unsolvedproblems={problems}
+        ></CoachesArea>
       </div>
       <SolvedArea problems={solvedproblems}></SolvedArea>
     </div>
