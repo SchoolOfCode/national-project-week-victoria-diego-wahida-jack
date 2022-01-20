@@ -11,12 +11,6 @@ function MainPage() {
   const [problems, setProblems] = useState([]);
   const [solvedproblems, setSolvedProblems] = useState([]);
 
-  async function newProblems() {
-    let today = new Date();
-    let time = today.getHours() + ":" + today.getMinutes();
-  }
-
-  newProblems();
 
   const getProblems = async () => {
     //Fetch problems from Heroku backend
@@ -92,7 +86,26 @@ function MainPage() {
     getProblems()
   }
 
-  //Run fetch problems function
+  async function clearAllProblems() {
+    const res = await fetch(`${API_URL}/unsolvedproblems`);
+    const result = await res.json();
+    let array = [];
+    for (let i = 0; i < result.payload.length; i++) {
+      array.push(result.payload[i]);
+    }
+    setProblems(array);
+    problems.map((async(item) => {
+      console.log("great")
+      const res = await fetch(`${API_URL}/unsolvedproblems/${item.id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const result = await res.json();
+    }))
+  }
+  
 
   return (
     <div>
@@ -107,8 +120,7 @@ function MainPage() {
           handleClick={toggleToBeingSolved}
           beingSolvedProblems={problems.filter((item) => item.beingsolved === true)}
         ></BeingSolvedArea>
-        <CoachesArea></CoachesArea>
-        {/* <FormPage /> */}
+        <CoachesArea clearAllProblems={clearAllProblems}></CoachesArea>
       </div>
       <SolvedArea problems={solvedproblems}></SolvedArea>
     </div>
