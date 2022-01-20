@@ -38,7 +38,6 @@ export function FormPage({ defaultOpened = false }, ref) {
       formData.text === "" ||
       formData.checkbox === false
     ) {
-      console.log(formData);
       return;
     } else {
       setValidForm(false);
@@ -53,8 +52,15 @@ export function FormPage({ defaultOpened = false }, ref) {
     }
     let currentTime = today.getHours() + ":" + minutes;
     today = today.toString();
-    console.log(today);
-    let entry = { ...formData, dateandtime: today, time: currentTime };
+    let roomno = parseInt(formData.roomnumber);
+    console.log(typeof roomno);
+    let entry = {
+      ...formData,
+      dateandtime: today,
+      time: currentTime,
+      roomnumber: roomno,
+    };
+    console.log(entry);
     const res = await fetch(`${API_URL}/unsolvedproblems/`, {
       method: "POST",
       headers: {
@@ -62,8 +68,6 @@ export function FormPage({ defaultOpened = false }, ref) {
       },
       body: JSON.stringify(entry),
     });
-    const result = await res.json();
-    console.log(result);
   }
 
   function clearForm() {
