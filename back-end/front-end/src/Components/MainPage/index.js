@@ -58,6 +58,7 @@ function MainPage() {
   //When you click on the button, change the beingsolved: true/false.
   //
   async function toggleToBeingSolved(id) {
+    console.log(id.target.id);
     id = Number(id.target.id);
     let index = problems.find((e) => e.id === id);
     console.log(index);
@@ -95,6 +96,7 @@ function MainPage() {
           problems={problems.filter((item) => item.beingsolved !== true)}
         ></ToBeSolvedArea>
         <BeingSolvedArea
+          handleClick={toggleToBeingSolved}
           problems={problems.filter((item) => item.beingsolved === true)}
         ></BeingSolvedArea>
         <CoachesArea></CoachesArea>

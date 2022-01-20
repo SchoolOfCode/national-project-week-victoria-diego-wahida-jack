@@ -16,7 +16,10 @@ function ProblemButtons({ problems, handleClick }) {
   if (problems.beingsolved === true) {
     return (
       <div className="problem-buttons">
-        <MeetingRoomOutlinedIcon></MeetingRoomOutlinedIcon>
+        <SupportIcon
+          id={problems.id}
+          onClick={(e) => handleClick(e)}
+        ></SupportIcon>
         <PlusOneOutlinedIcon
           onClick={IncrementCount}
           id={problems.id}

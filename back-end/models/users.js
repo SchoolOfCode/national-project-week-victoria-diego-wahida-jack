@@ -19,19 +19,19 @@ export async function getUserByID(id) {
 }
 
 export async function createNewUser(person) {
-  const { username, roomNumber } = person;
+  const { username, roomnumber } = person;
   const data = await query(
-    "INSERT INTO users (username,roomNumber) VALUES ($1,$2) RETURNING*;",
-    [username, roomNumber]
+    "INSERT INTO users (username,roomnumber) VALUES ($1,$2) RETURNING*;",
+    [username, roomnumber]
   );
   return data.rows;
 }
 
 export async function UpdateUserByID(id, update) {
-  const { username, roomNumber } = update;
+  const { username, roomnumber } = update;
   const data = await query(
-    "UPDATE users SET username = $2, roomNumber = $3  WHERE id= $1 RETURNING*;",
-    [id, username, roomNumber]
+    "UPDATE users SET username = $2, roomnumber = $3  WHERE id= $1 RETURNING*;",
+    [id, username, roomnumber]
   );
   return data.rows;
 }
@@ -64,10 +64,10 @@ export async function createNewUnSolvedProblem(problem) {
 }
 
 export async function UpdateUnsolvedProblemByID(id, update) {
-  const { roomNumber, title, text, dateandtime, time, beingsolved } = update;
+  const { roomnumber, title, text, dateandtime, time, beingsolved } = update;
   const data = await query(
-    "UPDATE unsolvedProblems SET roomNumber = $2, title = $3, text = $4, dateandtime = $5,  time = $6, beingsolved = $7 WHERE id= $1 RETURNING*;",
-    [id, roomNumber, title, text, dateandtime, time, beingsolved]
+    "UPDATE unsolvedProblems SET roomnumber = $2, title = $3, text = $4, dateandtime = $5,  time = $6, beingsolved = $7 WHERE id= $1 RETURNING*;",
+    [id, roomnumber, title, text, dateandtime, time, beingsolved]
   );
   return data.rows;
 }
@@ -92,19 +92,19 @@ export async function getSolvedProblemsByID(id) {
 }
 
 export async function createNewSolvedProblem(problem) {
-  const { roomNumber, title, text } = problem;
+  const { roomnumber, title, text } = problem;
   const data = await query(
-    "INSERT INTO solvedProblems (roomNumber, title, text) VALUES ($1,$2, $3) RETURNING*;",
-    [roomNumber, title, text]
+    "INSERT INTO solvedProblems (roomnumber, title, text) VALUES ($1,$2, $3) RETURNING*;",
+    [roomnumber, title, text]
   );
   return data.rows;
 }
 
 export async function UpdateSolvedProblemByID(id, update) {
-  const { roomNumber, title, text } = update;
+  const { roomnumber, title, text } = update;
   const data = await query(
-    "UPDATE solvedProblems SET roomNumber = $2, title = $3, text = $4 WHERE id= $1 RETURNING*;",
-    [id, roomNumber, title, text]
+    "UPDATE solvedProblems SET roomnumber = $2, title = $3, text = $4 WHERE id= $1 RETURNING*;",
+    [id, roomnumber, title, text]
   );
   return data.rows;
 }
