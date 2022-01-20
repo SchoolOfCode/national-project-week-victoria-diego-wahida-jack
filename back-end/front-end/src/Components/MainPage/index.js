@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import BeingSolvedArea from "../BeingSolvedArea";
 import SolvedArea from "../SolvedArea";
 import ToBeSolvedArea from "../ToBeSolvedArea";
-// import CoachesArea from "../CoachesArea";
-import FormPage from "../FormPage"
+import CoachesArea from "../CoachesArea";
 import "./styles.css";
 
 export const unsolvedProblems = [
@@ -67,7 +66,7 @@ function MainPage() {
     let time = today.getHours() + ":" + today.getMinutes();
   }
 
-  newProblems(); 
+  newProblems();
 
   async function getProblems() {
     //Fetch problems from Heroku backend
@@ -80,19 +79,19 @@ function MainPage() {
   console.log(problems);
 
   //export async function UpdateUnsolvedProblemByID(id, update) {
-//     const {roomNumber, title, text} = update
-//     const data = await query('UPDATE unsolvedProblems SET roomNumber = $2, title = $3, text = $4 WHERE id= $1 RETURNING*;', [id, roomNumber, title,text])
-//     return data.rows
-// }
+  //     const {roomNumber, title, text} = update
+  //     const data = await query('UPDATE unsolvedProblems SET roomNumber = $2, title = $3, text = $4 WHERE id= $1 RETURNING*;', [id, roomNumber, title,text])
+  //     return data.rows
+  // }
 
-// router.put("/:id", async function (req,res){
-//   const update = req.body
-//   const id = req.params.id
-//   res.json({
-//       "success": true,
-//       "payload": await UpdateUnsolvedProblemByID(id,update)
-//   })
-// })
+  // router.put("/:id", async function (req,res){
+  //   const update = req.body
+  //   const id = req.params.id
+  //   res.json({
+  //       "success": true,
+  //       "payload": await UpdateUnsolvedProblemByID(id,update)
+  //   })
+  // })
 
   // async function toggleToBeingSolved(id) {
   //   let index = problems.findIndex((e) => e.id === id)
@@ -100,17 +99,24 @@ function MainPage() {
   //   setProblems([...problems[0,index]git,  ammendedItem])
   //   const problems = [...problems, ]
   // }
+ 
+  // fetch(API_URL,{
+  //   method: 'PUT',
+  //   headers:{
+  //   'Content-Type':'application/json'
+  //   },
+  //   body: JSON.stringify(DATA_WHICH_WE_WANT_TO_SEND)
+  // })
+
   //Run fetch problems function
-
-
 
   return (
     <div>
       <div className="top-section">
         <ToBeSolvedArea problems={toBeSolved}></ToBeSolvedArea>
         <BeingSolvedArea problems={beingSolved}></BeingSolvedArea>
-        {/* <CoachesArea></CoachesArea> */}
-        <FormPage />
+        <CoachesArea></CoachesArea>
+        {/* <FormPage /> */}
       </div>
       <SolvedArea></SolvedArea>
     </div>
