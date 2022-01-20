@@ -2,3 +2,21 @@
   border-radius: 1%;
   margin: 0.5vh;
 }
+
+.problemRowGreen {
+  border-radius: 1%;
+  margin: 0.5vh;
+  background-color: green;
+}
+
+.problemRowRed {
+  border-radius: 1%;
+  margin: 0.5vh;
+  background-color: red;
+}
+
+.problemRowYellow {
+  border-radius: 1%;
+  margin: 0.5vh;
+  background-color: yellow;
+}

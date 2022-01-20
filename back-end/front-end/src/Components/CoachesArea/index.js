@@ -4,7 +4,7 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 const API_URL = process.env.REACT_APP_API_URL;
 
-function CoachesArea({ unsolvedproblems }) {
+function CoachesArea({ unsolvedproblems, clearAllProblems }) {
   const [users, setUsers] = useState([]);
 
   const getUsers = async () => {
@@ -45,40 +45,49 @@ function CoachesArea({ unsolvedproblems }) {
   }, []);
   return (
     <section>
-      <h1>Coaches Area</h1>
-      <ul className="userlist">
-        {users.map((user, index) => {
-          return (
-            <li
-              className={user.roomnumber ? "unavailable" : "available"}
-              key={user.id}
-            >
-              <AccountCircleIcon></AccountCircleIcon>
-              {user.username} - Room # {user.roomnumber}
-              <select
-                className="roomSelect"
-                data-username={user.username}
-                data-id={user.id}
-                data-roomnumber={user.roomnumber}
-                value={user.roomnumber}
-                onChange={(e) => handleChange(e.target.value, e)}
+      <div className="coaches-heading">
+        <h1>Coaches Area</h1>
+        <ul className="userlist">
+          {users.map((user, index) => {
+            return (
+              <li
+                className={user.roomnumber ? "unavailable" : "available"}
+                key={user.id}
               >
-                <option value={0}>0</option>
-                {unsolvedproblems.map((problem, index) => {
-                  return (
-                    <option
-                      key={Math.random() * 99999999}
-                      value={problem.roomnumber}
-                    >
-                      {problem.roomnumber}
-                    </option>
-                  );
-                })}
-              </select>
-            </li>
-          );
-        })}
-      </ul>
+                <AccountCircleIcon></AccountCircleIcon>
+                {user.username} - Room # {user.roomnumber}
+                <select
+                  className="roomSelect"
+                  data-username={user.username}
+                  data-id={user.id}
+                  data-roomnumber={user.roomnumber}
+                  value={user.roomnumber}
+                  onChange={(e) => handleChange(e.target.value, e)}
+                >
+                  <option value={0}>0</option>
+                  {unsolvedproblems.map((problem, index) => {
+                    return (
+                      <option
+                        key={Math.random() * 99999999}
+                        value={problem.roomnumber}
+                      >
+                        {problem.roomnumber}
+                      </option>
+                    );
+                  })}
+                </select>
+              </li>
+            );
+          })}
+        </ul>
+        <button
+          onClick={(e) => {
+            clearAllProblems();
+          }}
+        >
+          Clear Button
+        </button>
+      </div>
     </section>
   );
 }
