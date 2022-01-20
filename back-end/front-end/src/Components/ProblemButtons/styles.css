@@ -1,6 +1,8 @@
 .problem-buttons {
   display: flex;
   justify-content: space-around;
-  border-top: solid black 1px;
+  border-left: solid black 1px;
+  border-right: solid black 1px;
+  border-bottom: solid black 1px;
   font-size: 10px;
 }

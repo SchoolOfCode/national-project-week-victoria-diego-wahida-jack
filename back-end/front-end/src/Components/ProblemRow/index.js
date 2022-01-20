@@ -3,11 +3,14 @@ import ProblemDetails from "../ProblemDetails";
 import ProblemButtons from "../ProblemButtons";
 import "./styles.css";
 
-function ProblemRow({ problems, show }) {
+function ProblemRow({ problems, show, handleClick }) {
   return (
     <div className="problemRow">
       <ProblemDetails problems={problems}></ProblemDetails>
-      <ProblemButtons problems={problems}></ProblemButtons>
+      <ProblemButtons
+        handleClick={handleClick}
+        problems={problems}
+      ></ProblemButtons>
     </div>
   );
 }

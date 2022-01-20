@@ -1,12 +1,19 @@
 import React from "react";
 import "./styles.css";
+import ProblemDetails from "../ProblemDetails";
 
-function SolvedArea({problems}) {
+function SolvedArea({ problems }) {
   return (
     <div className="solved-area">
       <section>
-        <h1>Solved</h1>
-        {problems}
+        <h1>Solved Problems</h1>
+        <div className="solved-list">
+          {problems.map((item, index) => {
+            return (
+              <ProblemDetails problems={item} key={item.id}></ProblemDetails>
+            );
+          })}
+        </div>
       </section>
     </div>
   );

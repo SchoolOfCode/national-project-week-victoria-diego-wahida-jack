@@ -57,7 +57,7 @@ const API_URL = process.env.REACT_APP_API_URL;
 
 function MainPage() {
   const [problems, setProblems] = useState([]);
-  const [solvedproblems, setSolvedProblems] = useState([])
+  const [solvedproblems, setSolvedProblems] = useState([]);
 
   async function newProblems() {
     let today = new Date();
@@ -65,54 +65,62 @@ function MainPage() {
   }
 
   newProblems();
-useEffect(()=> {
-  async function getProblems() {
-    //Fetch problems from Heroku backend
-    const res = await fetch(`${API_URL}/unsolvedproblems`);
-    const result = await res.json();
-    let array = []
-    for(let i=0; i<result.payload.length; i++) {
-      array.push(result.payload[i])
+  useEffect(() => {
+    async function getProblems() {
+      //Fetch problems from Heroku backend
+      const res = await fetch(`${API_URL}/unsolvedproblems`);
+      const result = await res.json();
+      let array = [];
+      for (let i = 0; i < result.payload.length; i++) {
+        array.push(result.payload[i]);
+      }
+      setProblems(array);
     }
-    console.log("get problems fire")  
-    setProblems(array)
-  }
-  getProblems();
-},[])
+    getProblems();
+  }, []);
 
-useEffect(()=> {
-  async function getSolvedProblems() {
-    //Fetch problems from Heroku backend
-    const res = await fetch(`${API_URL}/solvedproblems`);
-    const result = await res.json();
-    let array = []
-    for(let i=0; i<result.payload.length; i++) {
-      array.push(result.payload[i])
+  useEffect(() => {
+    async function getSolvedProblems() {
+      //Fetch problems from Heroku backend
+      const res = await fetch(`${API_URL}/solvedproblems`);
+      const result = await res.json();
+      let array = [];
+      for (let i = 0; i < result.payload.length; i++) {
+        array.push(result.payload[i]);
+      }
+      setSolvedProblems(array);
     }
-    console.log("get solvedproblems fire")  
-    setSolvedProblems(array)
-  }
-  getSolvedProblems();
-},[])
+    getSolvedProblems();
+  }, []);
 
-//When you click on the button, change the beingsolved: true/false. 
-//
- async  function toggleToBeingSolved(id) {
-    let index = problems.findIndex((e) => e.id === id)
-    const update = !problems[index].beingsolved
-    const oldproblem  = {...problems[index], [problems[index].beingsolved]: update}
-    console.log(oldproblem)
+  //When you click on the button, change the beingsolved: true/false.
+  //
+  async function toggleToBeingSolved(id) {
+    id = Number(id.target.id);
+    let index = problems.find((e) => e.id === id);
+    console.log(index);
+    if (index === undefined) {
+      return;
+    } else {
+      const update = !index.beingsolved;
+      console.log({ update });
+      const oldproblem = {
+        ...index,
+        beingsolved: update,
+      };
 
-    const res = await fetch(`${API_URL}/unsolvedproblems/${id}`, 
-    {
-      method: 'PUT',
-      headers:{
-      'Content-Type':'application/json'
-      },
-      body: JSON.stringify(oldproblem)
-    });
-    const result = await res.json();
-    console.log(result)
+      console.log(oldproblem);
+
+      const res = await fetch(`${API_URL}/unsolvedproblems/${id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(oldproblem),
+      });
+      const result = await res.json();
+      console.log(result);
+    }
   }
 
   //Run fetch problems function
@@ -120,12 +128,17 @@ useEffect(()=> {
   return (
     <div>
       <div className="top-section">
-        <ToBeSolvedArea problems={problems.filter((item) => item.beingsolved !== true)}></ToBeSolvedArea>
-        <BeingSolvedArea problems={ problems.filter((item) => item.beingsolved === true)}></BeingSolvedArea>
+        <ToBeSolvedArea
+          handleClick={toggleToBeingSolved}
+          problems={problems.filter((item) => item.beingsolved !== true)}
+        ></ToBeSolvedArea>
+        <BeingSolvedArea
+          problems={problems.filter((item) => item.beingsolved === true)}
+        ></BeingSolvedArea>
         <CoachesArea></CoachesArea>
         {/* <FormPage /> */}
       </div>
-      <SolvedArea problems= {solvedproblems}></SolvedArea>
+      <SolvedArea problems={solvedproblems}></SolvedArea>
     </div>
   );
 }

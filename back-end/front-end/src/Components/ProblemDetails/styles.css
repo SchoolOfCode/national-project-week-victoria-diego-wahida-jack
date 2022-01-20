@@ -36,3 +36,7 @@
   text-align: center;
   margin-left: 0.5vw;
 }
+
+.problem-details {
+  border: solid black 1px;
+}

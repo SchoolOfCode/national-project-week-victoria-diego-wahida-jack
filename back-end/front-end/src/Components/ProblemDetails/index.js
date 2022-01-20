@@ -3,7 +3,7 @@ import "./styles.css";
 
 function ProblemDetails({ problems }) {
   return (
-    <div>
+    <div className="problem-details">
       <div className="problem-header">
         <h4>Room # </h4>
         <h2>{problems.title}</h2>

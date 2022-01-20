@@ -5,3 +5,13 @@
 .solved-area section {
   height: 100%;
 }
+
+.solved-list {
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 73%;
+}
+
+.solved-list div {
+  margin: 1vh;
+}
