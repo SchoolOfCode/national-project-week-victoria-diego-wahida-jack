@@ -80,40 +80,25 @@ useEffect(()=> {
 },[])
 
 
+//When you click on the button, change the beingsolved: true/false. 
+//
+ async  function toggleToBeingSolved(id) {
+    let index = problems.findIndex((e) => e.id === id)
+    const update = !problems[index].beingsolved
+    const oldproblem  = {...problems[index], [problems[index].beingsolved]: update}
+    console.log(oldproblem)
 
-// setInterval(() => {
-//   console.log(toBeSolved)
-// }, 5000);
-
-  // export async function UpdateUnsolvedProblemByID(id, update) {
-  //     const {roomNumber, title, text} = update
-  //     const data = await query('UPDATE unsolvedProblems SET roomNumber = $2, title = $3, text = $4 WHERE id= $1 RETURNING*;', [id, roomNumber, title,text])
-  //     return data.rows
-  // }
-
-  // router.put("/:id", async function (req,res){
-  //   const update = req.body
-  //   const id = req.params.id
-  //   res.json({
-  //       "success": true,
-  //       "payload": await UpdateUnsolvedProblemByID(id,update)
-  //   })
-  // })
-
-  // async function toggleToBeingSolved(id) {
-  //   let index = problems.findIndex((e) => e.id === id)
-  //  let ammendedItem = {...problems[index], beingSolved: !problems[index].beingSolved}
-  //   setProblems([...problems[0,index]git,  ammendedItem])
-  //   const problems = [...problems, ]
-  // }
- 
-  // fetch(API_URL,{
-  //   method: 'PUT',
-  //   headers:{
-  //   'Content-Type':'application/json'
-  //   },
-  //   body: JSON.stringify(DATA_WHICH_WE_WANT_TO_SEND)
-  // })
+    const res = await fetch(`${API_URL}/unsolvedproblems/${id}`, 
+    {
+      method: 'PUT',
+      headers:{
+      'Content-Type':'application/json'
+      },
+      body: JSON.stringify(oldproblem)
+    });
+    const result = await res.json();
+    console.log(result)
+  }
 
   //Run fetch problems function
 
