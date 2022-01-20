@@ -120,7 +120,7 @@ useEffect(()=> {
   return (
     <div>
       <div className="top-section">
-        <ToBeSolvedArea problems={problems.filter((item) => item.beingsolved === false)}></ToBeSolvedArea>
+        <ToBeSolvedArea problems={problems.filter((item) => item.beingsolved !== true)}></ToBeSolvedArea>
         <BeingSolvedArea problems={ problems.filter((item) => item.beingsolved === true)}></BeingSolvedArea>
         <CoachesArea></CoachesArea>
         {/* <FormPage /> */}
