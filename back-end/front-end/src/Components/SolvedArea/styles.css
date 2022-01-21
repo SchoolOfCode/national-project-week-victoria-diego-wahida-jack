@@ -2,6 +2,12 @@
   height: 28vh;
 }
 
+.solved-area div div {
+  background-color: rgba(158, 255, 158);
+  opacity: 0.9;
+  border: hidden;
+}
+
 .solved-area section {
   height: 100%;
 }
@@ -16,22 +22,22 @@
   margin: 1vh;
 }
 
-.solved-problem{
+.solved-problem {
   border-radius: 1%;
   margin: 0.5vh;
- 
+  overflow: hidden;
 }
 
-.header-solved{
+.header-solved {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   background-color: whitesmoke;
   display: flex;
   justify-content: center; /* align horizontal */
   align-items: center; /* align vertical */
-  
+
   min-height: 60px;
   padding: 10px;
   margin-top: 0vh;
   margin-bottom: 0vh;
-  box-sizing:border-box;
+  box-sizing: border-box;
 }

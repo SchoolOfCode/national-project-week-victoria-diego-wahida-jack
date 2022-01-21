@@ -4,8 +4,9 @@
   padding: 0;
   margin: 0;
   height: 100vh;
-  background-image: url(https://th.bing.com/th/id/OIP.yYHBfXRp1bSb6ue6uPwRNQHaEK?pid=ImgDet&rs=1);
-
+  background-image: url(https://cdn.mos.cms.futurecdn.net/reaVPYbHtVWG8WHFPrgdvB.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 /* .App div {
@@ -15,8 +16,8 @@
 } */
 
 .App section {
-  border-color:#4a90e2;
-  border-width: 4px;
+  border-color: #52a3ff;
+  border-width: 3px;
   border-collapse: separate;
   border-spacing: 15px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;

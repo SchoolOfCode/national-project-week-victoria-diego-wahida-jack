@@ -47,13 +47,15 @@ function CoachesArea({ unsolvedproblems, clearAllProblems }) {
     <section>
       <div className="coaches-heading">
         <div></div>
-        <h1 className="header-coaches">Coaches Area</h1>
+        <div></div>
+        <h1>Coaches Area</h1>
         <button
+          className="clear"
           onClick={(e) => {
             clearAllProblems();
           }}
         >
-          Clear Button
+          Clear problems
         </button>
       </div>
       <ul className="userlist">

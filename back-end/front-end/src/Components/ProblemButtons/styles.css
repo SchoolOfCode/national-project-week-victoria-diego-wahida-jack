@@ -1,4 +1,3 @@
-
 .problem-buttons {
   display: flex;
   justify-content: space-around;
@@ -7,9 +6,8 @@
   border-bottom: solid black 1px;
   font-size: 10px;
   height: 3vh;
-
+  padding: 0.5vh;
 }
 .counter {
   display: flex;
-  
 }

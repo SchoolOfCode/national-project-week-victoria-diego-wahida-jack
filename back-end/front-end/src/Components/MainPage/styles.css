@@ -1,20 +1,18 @@
-
 .top-section {
   display: flex;
   justify-content: space-around;
   height: 65vh;
   margin-bottom: 1vh;
-  background-image: url(https://th.bing.com/th/id/OIP.yYHBfXRp1bSb6ue6uPwRNQHaEK?pid=ImgDet&rs=1);  
+  background: rgba(255, 255, 255, 0);
 }
 
 .top-section section {
   width: 30vw;
   margin-bottom: 1vh;
-  
 }
 
 .bottom-section {
   margin-top: 1vh;
   background-image: url(https://th.bing.com/th/id/OIP.yYHBfXRp1bSb6ue6uPwRNQHaEK?pid=ImgDet&rs=1);
-  overflow: hidden 
+  overflow: hidden;
 }

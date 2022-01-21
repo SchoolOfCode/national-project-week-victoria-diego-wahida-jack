@@ -1,18 +1,31 @@
 .userlist {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: left;
   list-style-type: none;
+  width: 20vw;
+  margin: auto;
+  margin-top: 3vh;
 }
 .userlist li {
   display: flex;
   margin-bottom: 0.5vh;
   border-radius: 1%;
   width: 90%;
+  height: 4vh;
+  border-radius: 0.5vh;
+  margin-bottom: 1vh;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .roomSelect {
   margin-left: 2vw;
-  width: 8vw;
-  height: 2vh;
+  width: 3vw;
+  height: 3vh;
 }
 
 .available {
@@ -28,15 +41,16 @@
   justify-content: space-between;
 }
 
-.header-coaches{
-
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  background-color: whitesmoke;
+.coaches-heading {
   display: flex;
-  justify-content: center; /* align horizontal */
-  align-items: center; /* align vertical */
-  border: 2px solid grey;
+  background-color: whitesmoke;
+  justify-content: space-between;
   min-height: 60px;
-  padding: 10px;
+  border: 2px solid grey;
   margin-top: 0vh;
+  margin-bottom: 0vh;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.clear {
+  height: 3vh;
 }

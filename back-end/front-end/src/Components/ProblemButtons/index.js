@@ -120,7 +120,10 @@ function ProblemButtons({ problem, handleClick }) {
           onClick={IncrementCount}
           id={problem.id}
         ></PlusOneOutlinedIcon>
-        <PeopleIcon></PeopleIcon>
+        <div className="counter">
+          <PeopleIcon></PeopleIcon>
+          <p>{count}</p>
+        </div>
       </div>
     );
   } else {
