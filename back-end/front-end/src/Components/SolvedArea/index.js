@@ -6,11 +6,11 @@ function SolvedArea({ problems }) {
   return (
     <div className="solved-area">
       <section>
-        <h1>Solved Problems</h1>
+        <h1 className="header-solved">Solved Problems</h1>
         <div className="solved-list">
           {problems.map((item, index) => {
             return (
-              <ProblemDetails problem={item} key={item.id}></ProblemDetails>
+             <div className="solved-problem"> <ProblemDetails problem={item} key={item.id}></ProblemDetails></div>
             );
           })}
         </div>

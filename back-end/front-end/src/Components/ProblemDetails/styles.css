@@ -1,3 +1,4 @@
+
 .problem-header {
   display: flex;
   justify-content: space-between;
@@ -25,9 +26,9 @@
 }
 
 .problem-room-number header {
-  color: blue;
+  color: rgb(255, 255, 255);
   font-size: 3vh;
-  background-color: red;
+  background-color: #188262;
   border-radius: 50%;
   width: 2vw;
   height: 2vw;
@@ -35,8 +36,11 @@
   line-height: 2vh;
   text-align: center;
   margin-left: 0.5vw;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .problem-details {
   border: solid black 1px;
+  background-color: rgba(229, 229, 229, 1);
+  ;
 }

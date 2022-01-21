@@ -17,5 +17,4 @@ function ProblemDetails({ problem }) {
     </div>
   );
 }
-
 export default ProblemDetails;

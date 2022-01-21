@@ -1,8 +1,9 @@
-.toBeSolvedArea {
+.beingSolved-area {
   height: 100%;
+
 }
 
-.header {
+.header-beingSolved {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   background-color: whitesmoke;
   display: flex;
@@ -10,7 +11,7 @@
   align-items: center; /* align vertical */
   border: 2px solid grey;
   min-height: 60px;
-  padding: 0px;
+  padding: 10px;
   margin-top: 0vh;
   margin-bottom: 0vh;
 }

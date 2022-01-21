@@ -47,7 +47,7 @@ function CoachesArea({ unsolvedproblems, clearAllProblems }) {
     <section>
       <div className="coaches-heading">
         <div></div>
-        <h1>Coaches Area</h1>
+        <h1 className="header-coaches">Coaches Area</h1>
         <button
           onClick={(e) => {
             clearAllProblems();
