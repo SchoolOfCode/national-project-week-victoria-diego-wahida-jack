@@ -85,9 +85,9 @@ function ProblemButtons({ problem, handleClick }) {
     });
     console.log(deleteRes);
     //Kick the coaches from the room
-    findCoachesInRoom(newSolvedProblem.roomnumber);
+    await findCoachesInRoom(newSolvedProblem.roomnumber);
     //Refresh the page to update
-    window.location.reload();
+    // window.location.reload();
   }
 
   if (problem.beingsolved === true) {

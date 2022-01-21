@@ -34,19 +34,7 @@ export function FormPage(
 
   function handleChange(item, value) {
     setFormData({ ...formData, [item]: value });
-
-    // if (
-    //   formData.roomnumber === "" ||
-    //   formData.title === "" ||
-    //   formData.text === "" ||
-    //   formData.checkbox === false
-    // ) {
-    //   return;
-    // } else {
-    //   setValidForm(false);
-    // }
   }
-  //Control validform state with a useEffect to prevent last input issue
   useEffect(() => {
     if (
       formData.roomnumber === "" ||
