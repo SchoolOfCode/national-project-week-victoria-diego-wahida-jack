@@ -12,7 +12,10 @@ import CancelIcon from "@mui/icons-material/Cancel";
 const modalElement = document.getElementById("modal-root");
 const API_URL = process.env.REACT_APP_API_URL;
 
-export function FormPage({ defaultOpened = false, setProblems, problems }, ref) {
+export function FormPage(
+  { defaultOpened = false, setProblems, problems },
+  ref
+) {
   const [isOpen, setIsOpen] = useState(defaultOpened);
   const close = useCallback(() => setIsOpen(false), []);
 
@@ -32,6 +35,19 @@ export function FormPage({ defaultOpened = false, setProblems, problems }, ref) 
   function handleChange(item, value) {
     setFormData({ ...formData, [item]: value });
 
+    // if (
+    //   formData.roomnumber === "" ||
+    //   formData.title === "" ||
+    //   formData.text === "" ||
+    //   formData.checkbox === false
+    // ) {
+    //   return;
+    // } else {
+    //   setValidForm(false);
+    // }
+  }
+  //Control validform state with a useEffect to prevent last input issue
+  useEffect(() => {
     if (
       formData.roomnumber === "" ||
       formData.title === "" ||
@@ -42,7 +58,10 @@ export function FormPage({ defaultOpened = false, setProblems, problems }, ref) 
     } else {
       setValidForm(false);
     }
-  }
+    return () => {
+      return;
+    };
+  }, [formData]);
 
   async function submitProblem() {
     let today = new Date();
@@ -61,7 +80,7 @@ export function FormPage({ defaultOpened = false, setProblems, problems }, ref) 
       roomnumber: roomno,
     };
     console.log(entry);
-    setProblems([...problems, entry])
+    setProblems([...problems, entry]);
     const res = await fetch(`${API_URL}/unsolvedproblems/`, {
       method: "POST",
       headers: {
