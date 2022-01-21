@@ -96,10 +96,9 @@ function ProblemButtons({ problem, handleClick }) {
         <button id={problem.id} onClick={() => handleClick(problem.id)}>
           <SupportIcon></SupportIcon>
         </button>
-        <PlusOneOutlinedIcon
-          onClick={IncrementCount}
-          id={problem.id}
-        ></PlusOneOutlinedIcon>
+        <button onClick={IncrementCount} id={problem.id}>
+          <PlusOneOutlinedIcon></PlusOneOutlinedIcon>
+        </button>
         <div className="counter">
           <PeopleIcon></PeopleIcon>
           <p>{count}</p>
@@ -112,14 +111,12 @@ function ProblemButtons({ problem, handleClick }) {
   } else if (problem.beingsolved === false) {
     return (
       <div className="problem-buttons">
-        <MeetingRoomOutlinedIcon></MeetingRoomOutlinedIcon>
         <button id={problem.id} onClick={() => handleClick(problem.id)}>
           <SupportIcon></SupportIcon>
         </button>
-        <PlusOneOutlinedIcon
-          onClick={IncrementCount}
-          id={problem.id}
-        ></PlusOneOutlinedIcon>
+        <button onClick={IncrementCount} id={problem.id}>
+          <PlusOneOutlinedIcon></PlusOneOutlinedIcon>
+        </button>
         <div className="counter">
           <PeopleIcon></PeopleIcon>
           <p>{count}</p>
