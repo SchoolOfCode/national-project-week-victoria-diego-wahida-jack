@@ -48,7 +48,7 @@ function CoachesArea({ unsolvedproblems, clearAllProblems }) {
       <div className="coaches-heading">
         <div></div>
         <div></div>
-        <h1>Coaches Area</h1>
+        <h1>Coaches Lounge</h1>
         <button
           className="clear"
           onClick={(e) => {
