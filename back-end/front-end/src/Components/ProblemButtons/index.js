@@ -55,6 +55,7 @@ function ProblemButtons({ problem, handleClick }) {
         },
         body: JSON.stringify(coach),
       });
+      return res;
     }
   }
 
@@ -87,7 +88,7 @@ function ProblemButtons({ problem, handleClick }) {
     //Kick the coaches from the room
     await findCoachesInRoom(newSolvedProblem.roomnumber);
     //Refresh the page to update
-    // window.location.reload();
+    window.location.reload();
   }
 
   if (problem.beingsolved === true) {
